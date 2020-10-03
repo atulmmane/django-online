@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> My Shop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bmin.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/myapp.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    {% include 'navBar.html'%}
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!--SideBar-->
+            {% include 'sideBar.html'%}
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+                <!--Slider-->
+                {%include 'slider.html' %}
+
+                <div class="row">
+
+                    {% for i in pl%}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">{{i.pname}}</a>
+                                </h4>
+                                <h5>{{i.price}} Rs.</h5>
+                                {% if user.is_authenticated%}
+                                <h5><button><a href="addToCart?id={{i.id}}">addToCart</a></button></h5>
+                                {%else%}
+                                <h5><button><a href="userLogin">addToCart</a></button></h5>
+                                {%endif%}
+                                <p class="card-text">{{i.description}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+
+
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.col-lg-9 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    {% include 'footer.html'%}
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'js/jq.js'%}"></script>
+    <script src="{% static 'js/bmin.js'%}"></script>
+
+</body>
+
+</html>

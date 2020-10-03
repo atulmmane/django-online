@@ -1,0 +1,9 @@
+<div class="col-lg-3">
+
+    <h1 class="my-4">Online Shop</h1>
+    <div class="list-group">
+        {% for i in cl%}
+        <a href="getByCategory?cid={{i.id}}" class="list-group-item">{{i.cname}}</a> {%endfor%}
+    </div>
+
+</div>
