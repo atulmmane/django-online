@@ -13,7 +13,7 @@ urlpatterns = [
     path('search',v.search),
     path('addToCart',v.addToCart),
     path('cartList',v.cartList),
-    path('feed',v.feed),
+    
     
 
 

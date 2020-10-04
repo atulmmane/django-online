@@ -87,10 +87,4 @@ def cartList(request):
 
     return render(request,'cartList.html',d)
 
-
-def feed(request):
-    if request.method=='POST':
-        u=UserForm(request.POST)
-        u.save()
-        return redirect("/")
    
